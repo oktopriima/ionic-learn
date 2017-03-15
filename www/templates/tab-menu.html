@@ -1,0 +1,19 @@
+<ion-view view-title="List Menu">
+	<ion-content>
+		<ion-list>
+			<div class="list">
+				<ion-item ng-repeat="data in menu">
+					<a class="item item-thumbnail-left" href="#/tab/menu/{{data.id}}">
+						<img src="{{data.image}}">	
+						
+						<div class="col col-50">
+						<h2>{{data.title}}</h2>
+						<b>{{data.kategori}}</b>
+						<p>{{data.price}}</p>
+						</div>
+					</a>
+				</ion-item>
+			</div>
+		</ion-list>
+	</ion-content>
+</ion-view>

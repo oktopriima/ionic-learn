@@ -1,24 +1,14 @@
 var header_data = {
 		"Content-Type" : "application/x-www-form-urlencoded"
 	};
+var base_url = 'http://android.dev/android-rest-api/';
 
 angular.module('starter.controllers', [])
 
 .controller('DashCtrl', function($scope) {})
 
 .controller('ChatsCtrl', function($scope, Chats) {
-	// With the new view caching in Ionic, Controllers are only called
-	// when they are recreated or on app start, instead of every page change.
-	// To listen for when this page is active (for example, to refresh data),
-	// listen for the $ionicView.enter event:
-	//
-	//$scope.$on('$ionicView.enter', function(e) {
-	//});
-
 	$scope.chats = Chats.all();
-
-	console.log($scope.chats);
-
 	$scope.remove = function(chat) {
 		Chats.remove(chat);
 	};
@@ -28,21 +18,34 @@ angular.module('starter.controllers', [])
 	$scope.chat = Chats.get($stateParams.chatId);
 })
 
-.controller('AccountCtrl', function($scope, $http) {
+.controller('MenuCtrl', function ($scope, $http) {
 	$http({
 		method : 'POST',
-		url : 'http://localhost/FOR-GITHUB/yiibasic/web/api/news/detail',
+		url : base_url + 'api-menu',
+		headers : header_data
+	}).then(function(result) {
+		$scope.menu = result.data;
+	})
+})
+.controller('MenuDetailCtrl', function($scope, $http, $stateParams) {
+	$http({
+		method : 'POST',
+		url : base_url + 'api-menu/detail/',
 		headers : header_data,
 		data : {
-			token : '2AV04YqpJvVgazlUEEV9LOBfsawxyp4OXTfsk4d9',
-			id : "13"
+			'idmenu' : $stateParams.menuID
 		}
-	}).then(function(data) {
-		console.log(data);
+	}).then(function(result) {
+		var data  = result.data;
+
+		for (var i = 0; i < data.length; i++) {
+			if (data[i].id === parseInt($stateParams.menuID)) {
+				$scope.menu = data[i];
+				
+				return $scope.menu;
+			}
+		}
 	})
-	$scope.settings = {
-		enableFriends: true
-	};
 })
 .controller('NewsCtrl', function ($scope, $http) {
 	$http({
