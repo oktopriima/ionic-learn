@@ -58774,7 +58774,7 @@ function($scope, $element, $attrs, $q, $ionicConfig, $ionicHistory) {
     if (textAlign == 'left') {
       updateCss = 'title-left';
       if (buttonsLeft) {
-        updateTitleLeft = buttonsLeft + 15;
+        updateTitleLeft = buttonsLeft + 0;
       }
       if (buttonsRight) {
         updateTitleRight = buttonsRight + 15;

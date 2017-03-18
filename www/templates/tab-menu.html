@@ -1,5 +1,7 @@
 <ion-view view-title="List Menu">
-	<ion-content>
+	<ion-content data-ng-init="onload()">
+		<ion-refresher pulling-text="Pull down to refresh..." on-refresh="onload()">
+  		</ion-refresher>
 		<ion-list>
 			<div class="list">
 				<ion-item ng-repeat="data in menu">

@@ -1,0 +1,40 @@
+<ion-view class="okto-body-coffee" title="Home" hide-nav-bar="false" hide-back-button="true">
+	<ion-content padding="true" class="manual-ios-statusbar-padding" data-ng-init="init()">
+		<ion-refresher pulling-text="Pull down to refresh..." on-refresh="init()">
+  		</ion-refresher>
+		<form id="home-form2" class="list">
+			<label class="item item-input" name="cari">
+				<i class="icon ion-search placeholder-icon"></i>
+				<input type="search" placeholder="Search ...">
+			</label>
+		</form>
+
+		<ion-slide-box show-pager="false" auto-play="true" does-continue="true" ng-if="cities">
+  			<ion-slide ng-repeat="city in cities">
+  				<img class="okto-slide" src="{{city.cover}}">	
+  			</ion-slide>
+		</ion-slide-box>
+
+		<h4 class="okto-sub-header">Popular Post</h4>
+		<ion-list menus="dataMenu">
+			<ion-item class="okto-item" ng-repeat="data in dataMenu">
+				<a class="item okto-item" href="#/tab/menu/{{data.id}}">
+					<ion-grid>
+						<ion-row>
+							<ion-col col-12>
+								<h2 class="okto-list-title">{{data.title}}</h2>
+								<img style="width: 277px;" src="{{data.cover}}">	
+							</ion-col>
+						</ion-row>
+					</ion-grid>
+					
+					<div class="col col-100">
+						<p class="okto-list-summary">{{data.summary}}</p>
+						<p class="okto-list-postdate">{{data.keterangan}}</p>
+					</div>
+				</a>
+			</ion-item>
+		</ion-list>
+
+	</ion-content>
+</ion-view>

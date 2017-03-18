@@ -1,1 +1,45 @@
 /* Empty. Add your own CSS if you like */
+.okto-body-coffee{
+	background-image: url('../img/coffee.jpg');
+	background-position: center;
+	background-repeat: repeat-x;
+	background-size: auto 100%;
+
+}
+
+.okto-sub-header{
+	color:#ffffff;
+	text-align:center;
+}
+
+.okto-slide {
+	width:100%;
+	height:100%;
+}
+
+.okto-slide-page {
+	background-repeat: no-repeat;
+	background-position: center; 
+	background-size:cover;
+}
+
+.okto-item {
+	background-color: #190f08;
+}
+.item .okto-list-title {
+	white-space: normal;
+    text-align: center;
+    font-size: large;
+    padding-bottom: 11px;
+    color: antiquewhite;
+}
+
+.item .okto-list-summary {
+	white-space: normal;
+    text-align: justify;
+}
+.item .okto-list-postdate {
+	font-size: 0.7em;
+    font-style: italic;
+    font-weight: 900;
+}
